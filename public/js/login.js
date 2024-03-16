@@ -40,7 +40,7 @@ const doPost = async(_body) => {
 
 const doGetApi = async() => {
     
-    let url = `http://127.0.0.1:3003/users/`
+    let url = `https://procject17.onrender.com/users`
 
     fetch(url ,{
         method:'GET',
