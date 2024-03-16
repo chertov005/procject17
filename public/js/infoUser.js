@@ -8,7 +8,7 @@ window.addEventListener('load' ,()=> {
 
 const doGetApi = async() => {
 
-    let url = `http://127.0.0.1:3003/users/info` ;
+    let url = `hhttps://procject17.onrender.com/users/info` ;
     fetch(url,{
         method:'GET' ,
         headers:{'x-api-key':localStorage['user']}
