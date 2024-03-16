@@ -11,7 +11,7 @@ window.addEventListener('load' ,function(){
 
 const doPost = async(_body) => {
 
-  let url = `http://127.0.0.1:3003/users/login` || 'https://procject17.onrender.com/users '
+  let url = `http://127.0.0.1:3003/users/login` || 'https://procject17.onrender.com/users/login '
   
   let resp = await fetch(url ,{
 
