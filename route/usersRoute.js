@@ -17,7 +17,7 @@ router.get('/' ,authToken, async(req , res) => {
         }
 
         else {
-            return res.status(401) .json({message:'need permission for this route!!'}) 
+            return res.status(401) .json({message:'need permission for this route'}) 
         }
       
         
