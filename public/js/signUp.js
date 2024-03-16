@@ -8,7 +8,7 @@ window.addEventListener('load' ,()=> {
 
 const doPostApi = async(_body) => {
 
-    let url = `http://127.0.0.1:3003/users `
+    let url = `https://procject17.onrender.com/users `
     fetch(url ,{
         method:'POST' ,
         body:JSON.stringify(_body) ,
