@@ -14,7 +14,7 @@ app.use(express.json());
 app.use(express.static(path.join(__dirname,'public')));
 routeInit(app);
 
-let port = process.env.PORT || 3003 ;
+let port = process.env.PORT || 3000 ;
 
 server.listen(port ,(err) => {
 
