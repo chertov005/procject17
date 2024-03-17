@@ -1,0 +1,54 @@
+[{
+  "_id": {
+    "$oid": "632c6dded3bf54d11a1c0df9"
+  },
+  "name": "koko",
+  "email": "koko@walla.com",
+  "password": "$2b$10$vqP26/Due5i6JqOCnLusvuurZJXNHuEYH1KuPi4YDOIoC9/SeXkUK",
+  "date_created": {
+    "$date": {
+      "$numberLong": "1663855711605"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "632c82aad3bf54d11a1c0dfb"
+  },
+  "name": "jack black",
+  "email": "jack@walla.com",
+  "password": "$2b$10$CiI4jhKnQf1Ghoqqk7YEq.Ccqm5TTS6TtLaOKJtsVT3X5gX9xDCCi",
+  "date_created": {
+    "$date": {
+      "$numberLong": "1663855711605"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "63300e179ea9926690076172"
+  },
+  "name": "koko akof",
+  "email": "koko2@walla.com",
+  "password": "$2b$10$Rn65ZCNgcywNpSXCMHUvYesCc9iH1YY8nyTxOc3MLMBfNhWbSmOrC",
+  "date_created": {
+    "$date": {
+      "$numberLong": "1664093594278"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6358020fadbf32a4cbfdef18"
+  },
+  "name": "koko akof",
+  "email": "koko44@walla.com",
+  "password": "$2b$10$NoftAUFHfdMON0qB4rUxEeUFFVc9GGOjFwRxkgJp15V2QP4wmUX5.",
+  "date_created": {
+    "$date": {
+      "$numberLong": "1666712076357"
+    }
+  },
+  "__v": 0,
+  "img_url": "/users/6358020fadbf32a4cbfdef18.jpg"
+}]
