@@ -12,7 +12,7 @@ router.get('/' ,async(req , res) => {
     try {
 
      
-        return res.status(200).json ({message:`hello ${req.query.name}`})
+        return res.status(200).json ({message:`hello ${req.query.name1}`})
 
 
     } catch (error) {
