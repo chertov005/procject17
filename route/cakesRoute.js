@@ -11,7 +11,9 @@ router.get('/' ,async(req , res) => {
 //http://127.0.0.1:3000/cakes?page=3
     try {
 
-     res.status(200).json({message:`hello ${req.query.you}`})
+     
+        return res.status(200).json ({message:`hello ${req.query.name}`})
+
 
     } catch (error) {
         
