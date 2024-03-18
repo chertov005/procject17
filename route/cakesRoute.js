@@ -53,48 +53,54 @@ const {CakesModel,validCakes} = require('../DataBase/model/cakesModel')
 // });
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-// router.get('/' , async(req , res) => {
+router.get('/' , async(req , res) => {
 
-//     //http://127.0.0.1:3000/cakes?perPage=3&page=5
+    //http://127.0.0.1:3000/cakes?perPage=3&page=5
 
-//     try {
-
-
-//         let perPage = req.query.perPage ? req.query.perPage : 5
-//         let page = req.query.page ? req.query.page-1 : 0
+    try {
 
 
-//         let data = await CakesModel.find({}) .limit(perPage) .skip(perPage*page);
-//         return res.status(200) .json(data);
+        let perPage = req.query.perPage ? req.query.perPage : 5
+        let page = req.query.page ? req.query.page-1 : 0
+
+
+        let data = await CakesModel.find({}) .limit(perPage) .skip(perPage*page);
+        return res.status(200) .json(data);
         
         
-//     } catch (error) {
-//         return res.status(500) .json({message:'internal server error 500'})
-//     }
+    } catch (error) {
+        return res.status(500) .json({message:'internal server error 500'})
+    }
     
     
-// });
+});
 
 
-// router.get('/search' , async(req , res) => {
+router.get('/search' , async(req , res) => {
     
-//     try {
+    try {
 
-//         let s = req.query.s
-//         let searchExp = new RegExp(s,'i')
+        let s = req.query.s
+        let searchExp = new RegExp(s,'i')
         
-//         // let data = await CakesModel.find({name:searchExp})
-//         let data = await CakesModel.find({$or:[{name:searchExp},{info:searchExp}]})
-//         return res.status(200) .json(data);
+        // let data = await CakesModel.find({name:searchExp})
+        let data = await CakesModel.find({$or:[{name:searchExp},{info:searchExp}]})
+        return res.status(200) .json(data);
 
-//     } catch (error) {
-//         return res.status(500) .json({message:'internal server error 500'})
-        
-//     }
+    } catch (error) {
+        return res.status(500) .json({message:'internal server error 500'})
+
+    }
 
 
-// });
+});
 /////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+
+
+
 
 
 
