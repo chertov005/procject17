@@ -104,27 +104,45 @@ const {CakesModel,validCakes} = require('../DataBase/model/cakesModel')
 // });
 /////////////////////////////////////////////////////////////////////////////////////////////////
 
-router.get('/' ,async(req , res) => {
+// router.get('/' ,async(req , res) => {
 
-    let perPage = req.query.perPage ?  req.query.perPage : 5 ;
-    let page = req.query.page ? req.query.page-1 : 0
-    let myFilter = {} ;
-    let s = req.query.s ;
-    if(s) {
-        let searchExp = new RegExp(s , 'i') 
-        myFilter = {$or:[{name:searchExp},{info:searchExp}]}
-    }
+//     let perPage = req.query.perPage ?  req.query.perPage : 5 ;
+//     let page = req.query.page ? req.query.page-1 : 0
+//     let myFilter = {} ;
+//     let s = req.query.s ;
+//     if(s) {
+//         let searchExp = new RegExp(s , 'i') 
+//         myFilter = {$or:[{name:searchExp},{info:searchExp}]}
+//     }
+
+//     try {
+        
+//         let data = await CakesModel.find(myFilter) .limit(perPage) .skip(perPage*page) ;
+//         return res.status(200).json(data)
+
+//     } catch (error) {
+//         return res.status(500).json({message:'there some error with server , try later...'})
+//     }
+
+// });
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+router.get('/' , async(req , res) => {
 
     try {
-        
-        let data = await CakesModel.find(myFilter) .limit(perPage) .skip(perPage*page) ;
-        return res.status(200).json(data)
 
+        let data = await CakesModel.find({})
+        return res.status(200).json(data)
+        
     } catch (error) {
-        return res.status(500).json({message:'there some error with server , try later...'})
+        return res.status(500).json({message:'there was problem with server , try later'})
     }
 
+
 });
+
 
 
 
