@@ -129,38 +129,52 @@ const {CakesModel,validCakes} = require('../DataBase/model/cakesModel')
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+// router.get('/' , async(req , res) => {
+
+//     let perPage = 20;
+//     let page = req.query.page-1 || 0;
+//     let myFilter = {}
+//         if(req.query.s) {
+//             let searchExp = new RegExp(req.query.s ,'i') 
+//             myFilter = {$or:[{name:searchExp},{info:searchExp}]}
+            
+//         }
+
+//     try {
+
+//         let data = await CakesModel.find(myFilter) .limit(perPage) .skip(perPage * page)
+//         return res.status(200).json(data);
+        
+//     } catch (error) {
+//         return res.status(500).json({message:'there was problem with server , try later'})
+//     }
+
+
+// });
+
+
+//////////////////////////////////////////////////////////////////////////////////////////
+
+
 router.get('/' , async(req , res) => {
 
-    let perPage = 5;
-    let page = req.query.page-1 || 0;
-    let myFilter = {}
-    let s = req.query.s ;
-       
-        if(s) {
-            let searchExp = new RegExp(s ,'i') ;
-            myFilter = {$or:[{name:searchExp},{info:searchExp}]}
-            
-        }
-
-
-
-    try {
-
-        let data = await CakesModel.find(myFilter) .limit(perPage) .skip(perPage * page)
-        return res.status(200).json(data);
-        
-    } catch (error) {
-        return res.status(500).json({message:'there was problem with server , try later'})
+    let perPage = 5;;
+    let myFilter = {} 
+    let searchExp = new RegExp(req.query.s ,'i')
+    if(req.query.s) {
+        myFilter = {$or:[{name:searchExp} ,{info:searchExp}]}
     }
 
 
+    try {
+        let data = await CakesModel.find(myFilter) .limit(perPage) .skip(perPage*req.query.page)
+        return res.status(200) .json(data)
+        
+    } catch (error) {
+        return res.status(500).json({message:'some there error with server'})
+    }
+
 });
-
-
-
-
-
-
 
 
 module.exports = router ;
