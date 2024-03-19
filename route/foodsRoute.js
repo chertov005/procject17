@@ -29,7 +29,7 @@ router.get('/' ,authToken, async(req , res) => {
         }
 
     } catch (error) {
-        return res.status(500) .json({message:'internal server error' , error:error})
+        return res.status(500) .json({message:'internal server error2' , error:error})
     }
     
 
