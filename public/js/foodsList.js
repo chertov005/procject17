@@ -9,7 +9,7 @@ window.addEventListener('load',async() => {
 const doApiGetList  = async() =>{
 
 
-    let url = `http://127.0.0.1:3003/foods`
+    let url = `https://procject17.onrender.com/foods`
     
     fetch(url ,{
         method:'GET',
@@ -35,7 +35,7 @@ const doApiGetList  = async() =>{
 
 const doPostMethod = async(_obj) => {
     
-    let url = `http://127.0.0.1:3003/foods`
+    let url = `https://procject17.onrender.com/foods`
     fetch(url , {
         method:'POST' ,
         body:JSON.stringify(_obj) ,
@@ -65,7 +65,7 @@ const doPostMethod = async(_obj) => {
 
 const doDeleteMethod = async(_id) => {
 
-    let url = `http://127.0.0.1:3003/foods/${_id}`
+    let url = `https://procject17.onrender.com/${_id}`
     fetch(url ,{
         method:'DELETE' ,
         headers:{
