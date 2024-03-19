@@ -11,7 +11,7 @@ router.get('/' ,authToken, async(req , res) => {
     let myFilter = {} ;
     if(req.query.s) {
         
-        let sExp = new RegExp(req.query.s) 
+        let sExp = new RegExp(req.query.s ,'i') 
         myFilter = {$or:[{food:sExp} ,{price:sExp}]}
     }
 
