@@ -6,20 +6,14 @@ const {FoodsModel,validFoods} = require('../DataBase/model/foodsModel')
 
 router.get('/' ,authToken, async(req , res) => {
 
-    let perPage = 20 ;
-    let page = req.query.page-1 ;
-    let myFilter = {} ;
-    if(req.query.s) {
-        
-        let sExp = new RegExp(req.query.s ,'i') 
-        myFilter = {$or:[{food:sExp} ,{price:sExp}]}
-    }
+
+    
 
     try {
         
         let data;
         if(req.tokenData.role === 'admin') {
-            data = await FoodsModel.find({myFilter}) .limit(perPage) .skip(perPage*page)
+            data = await FoodsModel.find({}) 
             return res.status(200) .json(data)
         }
         
