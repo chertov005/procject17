@@ -117,7 +117,7 @@ window.addEventListener('load' , ()=>{
 
 const doApiUpload = async(_body) => {
 
-    let resp = await fetch(`https://procject17.onrender.com/upload` , {
+    let resp = await fetch(`http://127.0.0.1:3000/upload` , {
         method:'POST' ,
         body:_body 
     }) ;
