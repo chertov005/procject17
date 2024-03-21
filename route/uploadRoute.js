@@ -48,57 +48,145 @@ const path = require('path');
 //     }
 
 // });
+// ////////////////////////////////////////////////////////////////////////////////
+
+
+// router.post('/', async(req , res) => {
+    
+//         try {
+        
+//                 let myFile = req.files.myFile ;
+        
+//                 if(myFile.size <= 1024*1024*4) {
+            
+//                         let extArray = ['.jpg','.jpeg','.jfif','.pjpeg','.pjp'] ;
+//             let checkMyFileExt = path.extname(myFile.name) ;
+
+//             if(extArray.includes(checkMyFileExt)) {
+    
+    
+//                     myFile.mv(`public/image/${myFile.name}` , (err)=>{
+//                             if(err) {
+//                                     return res.json(err)
+//                                 }
+            
+//                                     return res.json({message:`success file upload !!`})
+            
+//                             })
+            
+            
+//                         }
+            
+//                         else{
+//                                 return res.json({message:'format file not allow , error !!'})
+//                             }
+                
+                
+                
+//                         }
+                
+//                         else{
+                    
+//                                 return res.json({message:'file over 5MB , max 4MB'})
+                    
+//                             }
+                    
+//                         } catch (error) {
+                        
+//                             }
+                        
+//                         })
+                        
+                    
+
+////////////////////////////////////////////////////////////////////////////////
+
+
+// router.post('/' ,async(req , res) => {
+
+//     try {
+
+//         let myFile = req.files.file ;
+//         if(myFile.size <= 1024*1024*4) {
+
+//             let extArray = ['.jpg','.jpeg','.jfif','.pjpeg','.pjp'] ;
+//             let checkExt = path.extname(myFile.name)
+
+//             if(extArray.includes(checkExt)) {
+
+                
+//                 return myFile.mv(`public/image/${myFile.name}` , (err) => {
+//                     if(err) {
+//                         return res.json(err)
+//                     }
+    
+//                     return res.json({message:'success upload file'})
+//                 } )
+
+
+
+
+//             }
+
+//             else{
+//                 return res.json({message:'format file not allow '})
+//             }
+
+//         }
+
+//         else{
+//             return res.json({message:'file over 4MB , max 4MB '})
+//         }
+        
+//     } catch (error) {
+//         return res.status(500).json({message:'there was problem with server , try later...'})
+//     }
+
+
+// });
+
+
 //////////////////////////////////////////////////////////////////////////////////
 
 
-router.post('/', async(req , res) => {
-
+router.post('/' , async(req , res) => {
+    
     try {
         
-        let myFile = req.files.myFile ;
+        let myFile = req.files.file ;
+        if(myFile.size <= 1024*1024*5) {
 
-        if(myFile.size <= 1024*1024*4) {
+            let ext_Array =  ['.jpg','.jpeg','.jfif','.pjpeg','.pjp'] ;
+            let checkExt = path.extname(myFile.name);
+            if(ext_Array.includes(checkExt)) {
+                
 
-            let extArray = ['.jpg','.jpeg','.jfif','.pjpeg','.pjp'] ;
-            let checkMyFileExt = path.extname(myFile.name) ;
-
-            if(extArray.includes(checkMyFileExt)) {
-
-
-                myFile.mv(`public/image/${myFile.name}` , (err)=>{
+                return myFile.mv(`public/image/${myFile.name}` , (err) => {
                     if(err) {
                         return res.json(err)
                     }
-                   
-                        return res.json({message:`success file upload !!`})
-        
+    
+                    return res.json({message:'success upload file'});
                 })
-
-
+                
             }
 
             else{
-                return res.json({message:'format file not allow , error !!'})
+                return res.json({message:'format file not allow'})
             }
 
-         
-
         }
-
         else{
-
-            return res.json({message:'file over 5MB , max 4MB'})
-
+            return res.json({message:'file over 4MB , max 4MB'})
         }
 
     } catch (error) {
+        return res.status(500).json({message:'there was problem with server , try later...'})
         
     }
 
-})
+});
 
-
-////////////////////////////////////////////////////////////////////////////////
 
 
 
