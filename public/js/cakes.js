@@ -10,7 +10,7 @@ window.addEventListener('load' ,() => {
 doApiGetList = async() => {
 
 
-    let url = `https://procject17.onrender.com/cakes`
+    let url = `http://127.0.0.1:3000/cakes`
     fetch(url ,{
         method:'GET' ,
         headers:{
