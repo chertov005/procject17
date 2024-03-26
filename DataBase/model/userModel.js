@@ -7,6 +7,7 @@ const schema = new mongoose.Schema({
     user:String,
     email:String,
     password:String,
+    img_url:String,
     role:{type:String , default:'user'} ,
     date_created:{type:Date , default:Date.now()} 
 

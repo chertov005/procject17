@@ -1,191 +1,127 @@
 const express = require('express') ;
 const router = express.Router() ;
-const path = require('path');
-
-
-
-/////////////////////////////////////////////////////////////////////////////////////////////'
+const {upLoad} = require('../util/uploadFile')
+const path = require('path')
 
 // router.post('/' , async(req , res) => {
-    
+
+//     try {
+        
+//         let data = await myUploadFile(req ,"file" ,"",4,['.png' ,'.jpg' ,'.jpeg'])
+//         return res.json(data)
+
+
+//     } catch (err) {
+//         return res.status(400) .json(err)
+//     }
+
+// });
+
+
+
+
+/////////////////////////////////////
+
+
+
+// router.post('/' , async(req , res) => {
+
 //     try {
 
-//         let myFile = req.files.myFile ;
-//         if(myFile.size <= 1024*1024*5) {
+//         let myFiles = req.files.file
+//         if(myFiles.size <= 1024*1024*4){
 
-//             let extsArray = ['.jpg','.jpeg','.jfif','.pjpeg','.pjp']
-//             let checkExtsFile = path.extname(myFile.name)
-
-//             if(extsArray.includes(checkExtsFile)) {
-//                 myFile.mv(`public/image/${myFile.name}` , (err) => {
-
+//             let ext_Array = ['.png' ,'.jpg' ,'.jpeg'] ;
+//             if(ext_Array.includes(path.extname(myFiles.name))){
+//                 myFiles.mv(`public/users/${myFiles.name}` , (err) => {
 //                     if(err) {
 //                         return res.json(err)
 //                     }
     
 //                     return res.json({message:'success upload file'})
-                    
 //                 })
 
 //             }
 
 //             else{
-//                 res.json({message:'exts File not allow , only image '})
+//                 return res.json({message:'format file not allow'})
 //             }
 
          
 //         }
-        
 //         else{
-            
-//             return res.json({message:'file over 5MB , max you can upload 5MB'})
+//             return res.json({message:'file over 4MB'})
 //         }
-       
+
+        
+//     } catch (error) {
+//         return res.status(500).json({message:'there was error with server  , try later...'})
+//     }
+
+// })
+
+////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+// router.post('/',async(req , res) => {
+
+//     try {
+        
+//         let data = await upLoad(req ,"file","",4,[".png",".jpg",".gif",".jpeg"])
+//         return res.json(data)
 
 //     } catch (error) {
-//     return res.status(500).json({message:'there error with server'})
-
+//         return res.json(error)
 //     }
 
 // });
-// ////////////////////////////////////////////////////////////////////////////////
 
 
-// router.post('/', async(req , res) => {
-    
-//         try {
-        
-//                 let myFile = req.files.myFile ;
-        
-//                 if(myFile.size <= 1024*1024*4) {
-            
-//                         let extArray = ['.jpg','.jpeg','.jfif','.pjpeg','.pjp'] ;
-//             let checkMyFileExt = path.extname(myFile.name) ;
-
-//             if(extArray.includes(checkMyFileExt)) {
-    
-    
-//                     myFile.mv(`public/image/${myFile.name}` , (err)=>{
-//                             if(err) {
-//                                     return res.json(err)
-//                                 }
-            
-//                                     return res.json({message:`success file upload !!`})
-            
-//                             })
-            
-            
-//                         }
-            
-//                         else{
-//                                 return res.json({message:'format file not allow , error !!'})
-//                             }
-                
-                
-                
-//                         }
-                
-//                         else{
-                    
-//                                 return res.json({message:'file over 5MB , max 4MB'})
-                    
-//                             }
-                    
-//                         } catch (error) {
-                        
-//                             }
-                        
-//                         })
-                        
-                    
-
-////////////////////////////////////////////////////////////////////////////////
 
 
-// router.post('/' ,async(req , res) => {
+/////////////////////////////////////////////////////
+
+
+
+// router.post('/' , async(req ,res) =>{
 
 //     try {
 
-//         let myFile = req.files.file ;
-//         if(myFile.size <= 1024*1024*4) {
-
-//             let extArray = ['.jpg','.jpeg','.jfif','.pjpeg','.pjp'] ;
-//             let checkExt = path.extname(myFile.name)
-
-//             if(extArray.includes(checkExt)) {
-
-                
-//                 return myFile.mv(`public/image/${myFile.name}` , (err) => {
-//                     if(err) {
-//                         return res.json(err)
-//                     }
-    
-//                     return res.json({message:'success upload file'})
-//                 } )
-
-
-
-
-//             }
-
-//             else{
-//                 return res.json({message:'format file not allow '})
-//             }
-
-//         }
-
-//         else{
-//             return res.json({message:'file over 4MB , max 4MB '})
-//         }
+//         let data = await upLoad(req , 'file' , 4 , [".png",".jpg",".gif",".jpeg"] ,'') 
+//         return res.status(200) .json(data)
         
 //     } catch (error) {
-//         return res.status(500).json({message:'there was problem with server , try later...'})
+//         return res.json(error)
 //     }
-
 
 // });
 
+////////////////////////////////////////////////////////////////////////////
 
-//////////////////////////////////////////////////////////////////////////////////
 
+router.get("/" , async(req , res) => {
 
-router.post('/' , async(req , res) => {
-    
     try {
+
+        return res.status(200) .json({message:'rout upload work ok'})
         
-        let myFile = req.files.file ;
-        if(myFile.size <= 1024*1024*5) {
-
-            let ext_Array =  ['.jpg','.jpeg','.jfif','.pjpeg','.pjp'] ;
-            let checkExt = path.extname(myFile.name);
-            if(ext_Array.includes(checkExt)) {
-                
-
-                return myFile.mv(`public/image/${myFile.name}` , (err) => {
-                    if(err) {
-                        return res.json(err)
-                    }
-    
-                    return res.json({message:'success upload file'});
-                })
-                
-            }
-
-            else{
-                return res.json({message:'format file not allow'})
-            }
-
-        }
-        else{
-            return res.json({message:'file over 4MB , max 4MB'})
-        }
-
     } catch (error) {
-        return res.status(500).json({message:'there was problem with server , try later...'})
-        
+        return res.status(500) .json({message:'there was problem with server , try agin later '})
     }
 
-});
+})
+
+
+
+
+
+
+
+
+
+
+
 
 
 
