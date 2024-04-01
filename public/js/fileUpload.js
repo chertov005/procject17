@@ -150,57 +150,108 @@
 
 ////////////////////////////////////////////////////////////////////////////////
 
+// window.addEventListener('load' , () => {
+
+//     declareViewEvent();
+    
+
+// });
+
+
+// const doAoiUploadFile = async(_file) => {
+
+//     try {
+
+//         let url = 'http://127.0.0.1:3000/upload'
+//         let resp = await fetch(url , {
+//             method:'POST' ,
+//             body:_file
+//         }) 
+//         let data = await resp.json()
+
+//         console.log(data)
+        
+        
+//     } catch (error) {
+//         console.log(error)
+//         return alert('there was problem with server , try agin later')
+//     }
+
+
+// };
+
+
+// const declareViewEvent = ()=> {
+
+
+//     document.querySelector('#id_form').addEventListener('submit' , (e) => {
+
+//         e.preventDefault() ;
+
+//         let formMyData = new FormData() ;
+
+//         formMyData.append('file' , document.querySelector('#id_file').files[0]) ;
+
+//         doAoiUploadFile(formMyData);
+
+
+//     });
+
+// };
+
+
+
+
+
+
+//////////////////////////////////////////////////////////////////////////////////
+
+
 window.addEventListener('load' , () => {
 
-    declareViewEvent();
-    
+
+
+    declareViewEvent ();
 
 });
 
 
-const doAoiUploadFile = async(_file) => {
 
-    try {
 
-        let url = 'http://127.0.0.1:3000/upload'
-        let resp = await fetch(url , {
-            method:'POST' ,
-            body:_file
-        }) 
-        let data = await resp.json()
 
-        console.log(data)
-        
-        
-    } catch (error) {
-        console.log(error)
-        return alert('there was problem with server , try agin later')
-    }
+const doApiUploadFile = async(_file) => {
+
+
+    let url = `http://127.0.0.1:3000/users/upload` ;
+    let resp = await fetch(url ,{
+        method:'POST',
+        body:_file ,
+        headers:{'x-api-key':localStorage.user}
+    }) 
+    let data =  await resp.json()
+
+    console.log(data)
 
 
 };
 
 
-const declareViewEvent = ()=> {
+const declareViewEvent = () => {
 
 
-    document.querySelector('#id_form').addEventListener('submit' , (e) => {
+    let id_form = document.querySelector('#id_form') ;
 
-        e.preventDefault() ;
+    id_form.addEventListener('submit' , async(e) => {
+
+        e.preventDefault();
 
         let formMyData = new FormData() ;
 
-        formMyData.append('file' , document.querySelector('#id_file').files[0]) ;
+        formMyData.append('file' ,document.querySelector('#id_file').files[0])
 
-        doAoiUploadFile(formMyData);
+        doApiUploadFile(formMyData)
 
 
     });
 
 };
-
-
-
-
-
-

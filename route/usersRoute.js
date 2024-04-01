@@ -149,9 +149,9 @@ router.post('/upload' ,authToken, async(req , res) => {
         
 
         let data = await upLoad(req , 'file' ,5 ,[".png",".jpg",".gif",".jpeg"] ,`/users/${req.tokenData._id}` );
-        if(data.fileName) {
+        if(data.file_name) {
 
-            let updateData = await UserModel.updateOne({_id:req.tokenData._id} ,{img_url:data.fileName})
+            let updateData = await UserModel.updateOne({_id:req.tokenData._id} ,{img_url:data.file_name})
 
             return res.status(200).json(updateData)
 
@@ -167,5 +167,15 @@ router.post('/upload' ,authToken, async(req , res) => {
 
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+
+
+
+
+
+
+
 
 module.exports = router;
