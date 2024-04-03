@@ -16,11 +16,23 @@ cloudinary.config({
     try {
 
 
+      let myFile = req.files.file ;
+
+      let data = await cloudinary.uploader.upload(myFile.tempFilePath , {unique_filename:true}) ;
+      return res.status(200) .json(data)
+
+      
+
+
     } catch (error) {
         return res.status(500) .json(error)
     }
 
   });
+
+
+
+
 
 
 
